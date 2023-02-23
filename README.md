@@ -1,6 +1,7 @@
 # Interactive Brokers TWS with Tradingview Webhook
 
 ## Setup
+This setup assumes, you run TWS on your desktop and use Ngrok service to publish the webhook endpoint
 
 ### Prepare environment
 - Clone the repository: `git clone https://github.com/zdytch/ib-tws-tradingview.git`
@@ -27,7 +28,10 @@
 - Add ngrok subdomain in "Domains" section. Use domain and region for your choice
 
 ### Setup Tradingview Alert
-- In Message field, insert text in format: `{"token": "WEBHOOK_TOKEN_FROM_ENV_FILE", "symbol": "{{ticker}}", "exchange": "{{exchange}}", "close": "{{close}}"}`
+- In Message field, insert text in format:
+```
+{"token": "WEBHOOK_TOKEN_FROM_ENV_FILE", "symbol": "{{ticker}}", "exchange": "{{exchange}}", "close": "{{close}}"}
+```
 - In Webhook URL field, insert address in format: `https://domain-from-ngrok.com/webhook`
 
 ### Setup TWS Application
