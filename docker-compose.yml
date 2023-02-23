@@ -1,12 +1,23 @@
 version: '3.8'
 
 services:
-  project-app:
+  tv-webhook-app:
     environment:
       - TZ=$TIME_ZONE
-    container_name: project-app
+    container_name: tv-webhook-app
     restart: unless-stopped
     build:
       context: ./app
       target: prod
     tty: true
+
+  tv-webhook-ngrok:
+    environment:
+      - TZ=$TIME_ZONE
+      - NGROK_AUTHTOKEN=$NGROK_TOKEN
+    container_name: tv-webhook-ngrok
+    image: ngrok/ngrok
+    restart: unless-stopped
+    command: http --region=$NGROK_REGION --hostname=$NGROK_DOMAIN tv-webhook-app:8000
+    ports:
+      - 4040:4040

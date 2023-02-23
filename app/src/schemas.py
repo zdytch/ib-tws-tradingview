@@ -18,4 +18,4 @@ class TVWebhookData(BaseModel):
     symbol: str
     exchange: Exchange
     side: Side
-    last_price: Decimal
+    close: Decimal
