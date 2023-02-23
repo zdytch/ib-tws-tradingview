@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  project-app:
+    environment:
+      - TZ=$TIME_ZONE
+    container_name: project-app
+    restart: unless-stopped
+    build:
+      context: ./app
+      target: prod
+    tty: true

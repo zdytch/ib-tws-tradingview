@@ -1,0 +1,8 @@
+version: '3.8'
+
+services:
+  project-app-test:
+    build:
+      target: base-dev
+    volumes:
+      - ./app/src:/usr/src
