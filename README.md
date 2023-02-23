@@ -29,3 +29,20 @@
 ### Setup Tradingview Alert
 - In Message field, insert text in format: `{"token": "WEBHOOK_TOKEN_FROM_ENV_FILE", "symbol": "{{ticker}}", "exchange": "{{exchange}}", "close": "{{close}}"}`
 - In Webhook URL field, insert address in format: `https://domain-from-ngrok.com/webhook`
+
+### Setup TWS Application
+- Run the TWS application from your desktop
+- Login with your username, password and trading mode
+- From menu, open 'File' - 'Global Configuration...'
+- 'API' - 'Settings' section: 'Enable activex and socket clients' -> ENABLE, 'API readonly' -> DISABLE, 'Socket port' -> 7497
+- 'API' - 'Precautions' section: set -> ENABLE for all precautions
+- Press 'Apply', then 'Ok'
+- Close the application using 'X' button in the corner. That will upload application settings from desktop to IB server
+
+### Setup Docker
+- Install [Docker Desktop](https://www.docker.com/products/docker-desktop)
+
+## Run
+- Run TWS application
+- Switch to the project folder: `cd /path/to/project/directory`
+- Run: `docker compose up --build`
