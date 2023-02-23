@@ -1,6 +1,7 @@
 import uvicorn
 from fastapi import FastAPI, HTTPException
 from schemas import TVWebhookData
+from logic import handle_webhook
 from loguru import logger
 from settings import WEBHOOK_TOKEN, DEBUG
 
@@ -11,7 +12,7 @@ _app = FastAPI(**_kwargs)
 @_app.post('/webhook')
 async def tradingview_webhook(schema: TVWebhookData):
     if schema.token == WEBHOOK_TOKEN:
-        logger.info('Webhook data received')
+        await handle_webhook(schema)
 
     else:
         logger.info('Wrong webhook token')
