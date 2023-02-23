@@ -1,3 +1,4 @@
+import web_server
 from loguru import logger
 from settings import DEBUG
 
@@ -20,5 +21,4 @@ if DEBUG:
 
 
 if __name__ == '__main__':
-    # Start here
-    ...
+    web_server.run()
