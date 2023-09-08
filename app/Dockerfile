@@ -35,4 +35,4 @@ RUN pipenv install --system --deploy --ignore-pipfile --dev
 
 FROM base-dev as dev
 
-# CMD your command here
+CMD python main.py

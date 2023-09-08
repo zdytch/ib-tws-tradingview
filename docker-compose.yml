@@ -4,6 +4,7 @@ services:
   tv-webhook-app:
     environment:
       - TZ=$TIME_ZONE
+      - WEBHOOK_TOKEN=$WEBHOOK_TOKEN
     container_name: tv-webhook-app
     restart: unless-stopped
     build:
@@ -18,6 +19,6 @@ services:
     container_name: tv-webhook-ngrok
     image: ngrok/ngrok
     restart: unless-stopped
-    command: http --region=$NGROK_REGION --hostname=$NGROK_DOMAIN tv-webhook-app:8000
+    command: http --region=$NGROK_REGION --domain=$NGROK_DOMAIN tv-webhook-app:8000
     ports:
       - 4040:4040
